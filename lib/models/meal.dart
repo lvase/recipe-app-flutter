@@ -10,10 +10,17 @@ class Meal {
   });
 
   factory Meal.fromJson(Map<String, dynamic> json) {
-    return Meal(
-      id: json['idMeal'],
-      name: json['strMeal'],
-      thumbnail: json['strMealThumb'],
-    );
+    return Meal(id: json['idMeal'] ?? '',
+        name: json['strMeal'] ?? '',
+        thumbnail: json['strMealThumb'] ?? '');
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'idMeal': id,
+      'strMeal': name,
+      'strMealThumb': thumbnail,
+    };
   }
 }
+
